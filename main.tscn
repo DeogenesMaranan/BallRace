@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ima0x8emf62r" path="res://Components/winScreen.tscn" id="3_qataq"]
 [ext_resource type="Script" path="res://Helper/turnManager.gd" id="4_68cpj"]
 [ext_resource type="Script" path="res://Helper/wallGenerator.gd" id="5_pkqxn"]
-[ext_resource type="Script" path="res://finishLineGenerator.gd" id="6_ya57n"]
+[ext_resource type="Script" path="res://Helper/obstacleGenerator.gd" id="8_y0l16"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h2x83")
@@ -77,5 +77,5 @@ position = Vector2(200, 350)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 
-[node name="FinishLineGenerator" type="Node2D" parent="."]
-script = ExtResource("6_ya57n")
+[node name="ObstacleGenerator" type="Node2D" parent="."]
+script = ExtResource("8_y0l16")
