@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://ba7x8exjgafxl"]
 
-[ext_resource type="Script" path="res://joystick.gd" id="1_n6qya"]
+[ext_resource type="Script" path="res://Components/Joystick/joystick.gd" id="1_80jwd"]
 [ext_resource type="Texture2D" uid="uid://dfvckg1jc3s00" path="res://Static/Joystick/Base.png" id="1_tkavb"]
 [ext_resource type="Texture2D" uid="uid://c8xy0uwy4pvq4" path="res://Static/Joystick/Stick.png" id="2_vgp4e"]
-[ext_resource type="Script" path="res://knob.gd" id="4_oo8ji"]
+[ext_resource type="Script" path="res://Components/Joystick/knob.gd" id="4_2cecf"]
 
 [node name="Joystick" type="Node2D"]
-script = ExtResource("1_n6qya")
+script = ExtResource("1_80jwd")
 
 [node name="Base" type="Sprite2D" parent="."]
 position = Vector2(2, -4)
@@ -15,7 +15,7 @@ texture = ExtResource("1_tkavb")
 [node name="Knob" type="Sprite2D" parent="."]
 position = Vector2(-1, -2)
 texture = ExtResource("2_vgp4e")
-script = ExtResource("4_oo8ji")
+script = ExtResource("4_2cecf")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
