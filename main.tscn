@@ -16,14 +16,16 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -68.0
-offset_right = 68.0
-offset_bottom = 141.0
+offset_right = 82.0
+offset_bottom = 150.0
 grow_horizontal = 2
 
 [node name="CurrentPlayer" type="Label" parent="HUD/TopCenter"]
 layout_mode = 2
+size_flags_horizontal = 3
 horizontal_alignment = 1
 vertical_alignment = 1
+text_direction = 1
 
 [node name="BotCenter" type="HBoxContainer" parent="HUD"]
 anchors_preset = 7
@@ -47,8 +49,13 @@ position = Vector2(150, 360)
 [node name="Player2" parent="." instance=ExtResource("2_jnai4")]
 position = Vector2(250, 360)
 
-[node name="TurnManager" type="Node" parent="."]
+[node name="TurnManager" type="Node2D" parent="."]
 script = ExtResource("4_68cpj")
 
 [node name="WallGenerator" type="Node2D" parent="."]
 script = ExtResource("5_pkqxn")
+
+[node name="View" type="Camera2D" parent="."]
+position = Vector2(203, 349)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0

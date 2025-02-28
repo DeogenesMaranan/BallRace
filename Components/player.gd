@@ -1,13 +1,15 @@
 extends RigidBody2D
 
-const SPEED = 2000.0
-const FRICTION = 0.97
+const SPEED = 3000.0
+const FRICTION = 0.99
 const BALL_RADIUS = 16.0
 const MIN_SEPARATION = 1.1
 const STOP_THRESHOLD = 5.0
 const FORCE_MULTIPLIER = 1.5
 
 func _ready() -> void:
+	position.x = get_parent().get_viewport().size.x
+	position.y = get_parent().get_viewport().size.y
 	gravity_scale = 0
 	linear_damp = 1.0
 	var physics_material = PhysicsMaterial.new()
