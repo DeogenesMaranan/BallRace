@@ -9,15 +9,15 @@ extends Node2D
 @export var dynamic_collision_margin: int = 100
 
 @export_group("Static Obstacles")
-@export var static_min_count: int = 75
-@export var static_max_count: int = 100
-@export var static_min_size: float = 5.0
-@export var static_max_size: float = 50.0
+@export var static_min_count: int = 100
+@export var static_max_count: int = 200
+@export var static_min_size: float = 30.0
+@export var static_max_size: float = 100.0
 @export var static_color: Color = Color.SADDLE_BROWN
 @export var static_collision_margin: int = 100
 
 @export var min_spacing: float = 30.0
-@export var max_placement_attempts: int = 100
+@export var max_placement_attempts: int = 200
 
 var existing_obstacles = []
 

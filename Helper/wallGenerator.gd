@@ -3,8 +3,8 @@ extends Node2D
 @export var collision_margin: int = 100
 @export var wall_color: Color = Color.BROWN
 @export var finish_line_color: Color = Color.GREEN
-const FINISH_SIZE_HORIZONTAL = Vector2(200, 100)
-const FINISH_SIZE_VERTICAL = Vector2(100, 200)
+const FINISH_SIZE_HORIZONTAL = Vector2(200, 200)
+const FINISH_SIZE_VERTICAL = Vector2(200, 200)
 @onready var obstacle_generator: Node2D = $"../ObstacleGenerator"
 @onready var win_screen: Control = $"../HUD/Center/WinScreen"
 
