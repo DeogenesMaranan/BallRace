@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgeqawox2dujp"]
+[gd_scene load_steps=8 format=3 uid="uid://dgeqawox2dujp"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_h2x83"]
 [ext_resource type="PackedScene" uid="uid://ba7x8exjgafxl" path="res://Scenes/joystick.tscn" id="1_nlyxu"]
 [ext_resource type="PackedScene" uid="uid://2wrdd2mg716f" path="res://Scenes/player.tscn" id="2_jnai4"]
+[ext_resource type="PackedScene" uid="uid://ima0x8emf62r" path="res://Components/winScreen.tscn" id="3_qataq"]
+[ext_resource type="Script" path="res://Helper/turnManager.gd" id="4_68cpj"]
+[ext_resource type="Script" path="res://Helper/wallGenerator.gd" id="5_pkqxn"]
+[ext_resource type="Script" path="res://Helper/obstacleGenerator.gd" id="8_y0l16"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h2x83")
@@ -13,13 +17,18 @@ script = ExtResource("1_h2x83")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -68.0
+offset_right = 82.0
+offset_bottom = 150.0
 grow_horizontal = 2
 
 [node name="CurrentPlayer" type="Label" parent="HUD/TopCenter"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+text_direction = 1
 
 [node name="BotCenter" type="HBoxContainer" parent="HUD"]
 anchors_preset = 7
@@ -37,8 +46,37 @@ grow_vertical = 0
 position = Vector2(125, 125)
 scale = Vector2(0.5, 0.5)
 
+[node name="Center" type="VBoxContainer" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinScreen" parent="HUD/Center" instance=ExtResource("3_qataq")]
+visible = false
+layout_mode = 2
+
 [node name="Player1" parent="." instance=ExtResource("2_jnai4")]
-position = Vector2(383, 251)
+position = Vector2(150, 360)
 
 [node name="Player2" parent="." instance=ExtResource("2_jnai4")]
-position = Vector2(816, 242)
+position = Vector2(250, 360)
+
+[node name="TurnManager" type="Node2D" parent="."]
+script = ExtResource("4_68cpj")
+
+[node name="WallGenerator" type="Node2D" parent="."]
+script = ExtResource("5_pkqxn")
+
+[node name="View" type="Camera2D" parent="."]
+position = Vector2(200, 350)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="ObstacleGenerator" type="Node2D" parent="."]
+script = ExtResource("8_y0l16")

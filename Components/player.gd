@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Player
 
 const SPEED = 2000.0
 const FRICTION = 0.95
@@ -8,6 +9,8 @@ const STOP_THRESHOLD = 5.0
 const FORCE_MULTIPLIER = 1.5
 
 func _ready() -> void:
+	position.x = get_parent().get_viewport().size.x
+	position.y = get_parent().get_viewport().size.y
 	gravity_scale = 0
 	linear_damp = 1.0
 	var physics_material = PhysicsMaterial.new()
@@ -15,7 +18,7 @@ func _ready() -> void:
 	physics_material.friction = 0.1
 	physics_material_override = physics_material
 
-func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	linear_velocity *= FRICTION
 	
 	if linear_velocity.length() < STOP_THRESHOLD:

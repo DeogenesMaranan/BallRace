@@ -13,3 +13,19 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Android-specific ignores
+android/build/
+android/.cxx/
+android/.gradle/
+android/.idea/
+android/local.properties
+android/app/build/
+android/gradle/
+android/gradlew
+android/gradlew.bat
+android/out/
+android/my
+
+*.apk
+*.apk.*
