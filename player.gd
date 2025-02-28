@@ -27,18 +27,18 @@ func apply_input(input_vector: Vector2):
 func _on_body_entered(other: Node):
 	if other is RigidBody2D:
 		handle_ball_collision(other)
-	elif other is StaticBody2D:  # Handle wall collisions
+	elif other is StaticBody2D:
 		handle_wall_collision(other)
 
 func handle_ball_collision(other: RigidBody2D):
-	var m1 = mass if mass > 0 else 1.0  # Default mass if not set
+	var m1 = mass if mass > 0 else 1.0
 	var m2 = other.mass if other.mass > 0 else 1.0
 	
 	var normal = (other.global_position - global_position).normalized()
 	var relative_velocity = linear_velocity - other.linear_velocity
 	
 	if relative_velocity.dot(normal) > 0:
-		return  # No collision response needed
+		return
 	
 	var v1n = linear_velocity.dot(normal)
 	var v2n = other.linear_velocity.dot(normal)
