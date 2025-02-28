@@ -15,7 +15,7 @@ func _ready() -> void:
 	physics_material.friction = 0.1
 	physics_material_override = physics_material
 
-func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	linear_velocity *= FRICTION
 	
 	if linear_velocity.length() < STOP_THRESHOLD:
