@@ -71,10 +71,24 @@ func _are_balls_moving() -> bool:
 			return true
 	return false
 
+@onready var tween: Tween = get_tree().create_tween()
+
 func _process(delta: float):
 	if _are_balls_moving():
-		joystick.set_enabled(false)
-		joystick.modulate = Color(1, 1, 1, 0.1)
+		if joystick.is_joystick_enabled():
+			joystick.set_enabled(false)
+			_start_fade(Color(1, 1, 1, 0.1))
 	else:
-		joystick.set_enabled(true)
-		joystick.modulate = Color.WHITE
+		if not joystick.is_joystick_enabled():
+			joystick.set_enabled(true)
+			_start_fade(Color.WHITE, true)
+
+func _start_fade(target_color: Color, enable_after: bool = false):
+	if tween and tween.is_running():
+		tween.kill()
+	
+	tween = get_tree().create_tween()
+	tween.tween_property(joystick, "modulate", target_color, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+	if enable_after:
+		tween.finished.connect(func(): joystick.set_enabled(true), CONNECT_ONE_SHOT)
