@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 const SPEED = 2000.0
-const FRICTION = 0.95
+const FRICTION = 0.97
 const BALL_RADIUS = 16.0
 const MIN_SEPARATION = 1.1
 const STOP_THRESHOLD = 5.0

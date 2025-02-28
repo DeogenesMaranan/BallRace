@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgeqawox2dujp"]
+[gd_scene load_steps=6 format=3 uid="uid://dgeqawox2dujp"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_h2x83"]
 [ext_resource type="PackedScene" uid="uid://ba7x8exjgafxl" path="res://Scenes/joystick.tscn" id="1_nlyxu"]
 [ext_resource type="PackedScene" uid="uid://2wrdd2mg716f" path="res://Scenes/player.tscn" id="2_jnai4"]
+[ext_resource type="Script" path="res://Helper/turnManager.gd" id="4_68cpj"]
+[ext_resource type="Script" path="res://Helper/wallGenerator.gd" id="5_pkqxn"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h2x83")
@@ -42,3 +44,9 @@ position = Vector2(383, 251)
 
 [node name="Player2" parent="." instance=ExtResource("2_jnai4")]
 position = Vector2(816, 242)
+
+[node name="TurnManager" type="Node" parent="."]
+script = ExtResource("4_68cpj")
+
+[node name="WallGenerator" type="Node2D" parent="."]
+script = ExtResource("5_pkqxn")
