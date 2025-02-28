@@ -15,7 +15,7 @@ func _ready():
 
 func show_winner(player_name: String):
 	winner_label.text = player_name + " Wins!"
-	overlay.color = Color(0, 0, 0, 0.7)
+	overlay.color = Color(0, 0, 0, 0.9)
 	show()
 
 func _on_play_again_pressed():

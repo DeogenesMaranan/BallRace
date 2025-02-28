@@ -3,9 +3,9 @@ extends Node2D
 @export_group("Dynamic Obstacles")
 @export var dynamic_min_count: int = 75
 @export var dynamic_max_count: int = 100
-@export var dynamic_min_size: float = 5.0
-@export var dynamic_max_size: float = 50.0
-@export var dynamic_color: Color = Color.BLUE
+@export var dynamic_min_size: float = 20.0
+@export var dynamic_max_size: float = 30.0
+@export var dynamic_color: Color = Color.DARK_SLATE_GRAY
 @export var dynamic_collision_margin: int = 100
 
 @export_group("Static Obstacles")
@@ -13,7 +13,7 @@ extends Node2D
 @export var static_max_count: int = 100
 @export var static_min_size: float = 5.0
 @export var static_max_size: float = 50.0
-@export var static_color: Color = Color.BLACK
+@export var static_color: Color = Color.SADDLE_BROWN
 @export var static_collision_margin: int = 100
 
 @export var min_spacing: float = 30.0

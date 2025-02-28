@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var collision_margin: int = 100
-@export var wall_color: Color = Color.RED
+@export var wall_color: Color = Color.BROWN
 @export var finish_line_color: Color = Color.GREEN
 const FINISH_SIZE_HORIZONTAL = Vector2(200, 100)
 const FINISH_SIZE_VERTICAL = Vector2(100, 200)
