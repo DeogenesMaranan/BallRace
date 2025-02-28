@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgeqawox2dujp"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_h2x83"]
+[ext_resource type="PackedScene" uid="uid://ba7x8exjgafxl" path="res://joystick.tscn" id="1_nlyxu"]
+[ext_resource type="PackedScene" uid="uid://2wrdd2mg716f" path="res://player.tscn" id="2_jnai4"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_h2x83")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TopCenter" type="HBoxContainer" parent="HUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="CurrentPlayer" type="Label" parent="HUD/TopCenter"]
+layout_mode = 2
+
+[node name="BotCenter" type="HBoxContainer" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -300.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Joystick" parent="HUD/BotCenter" instance=ExtResource("1_nlyxu")]
+position = Vector2(125, 125)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player1" parent="." instance=ExtResource("2_jnai4")]
+position = Vector2(383, 251)
+
+[node name="Player2" parent="." instance=ExtResource("2_jnai4")]
+position = Vector2(816, 242)
