@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgeqawox2dujp"]
+[gd_scene load_steps=8 format=3 uid="uid://dgeqawox2dujp"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_h2x83"]
 [ext_resource type="PackedScene" uid="uid://ba7x8exjgafxl" path="res://Scenes/joystick.tscn" id="1_nlyxu"]
 [ext_resource type="PackedScene" uid="uid://2wrdd2mg716f" path="res://Scenes/player.tscn" id="2_jnai4"]
+[ext_resource type="PackedScene" uid="uid://ima0x8emf62r" path="res://Components/winScreen.tscn" id="3_qataq"]
 [ext_resource type="Script" path="res://Helper/turnManager.gd" id="4_68cpj"]
 [ext_resource type="Script" path="res://Helper/wallGenerator.gd" id="5_pkqxn"]
 [ext_resource type="Script" path="res://finishLineGenerator.gd" id="6_ya57n"]
@@ -44,6 +45,21 @@ grow_vertical = 0
 position = Vector2(125, 125)
 scale = Vector2(0.5, 0.5)
 
+[node name="Center" type="VBoxContainer" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinScreen" parent="HUD/Center" instance=ExtResource("3_qataq")]
+visible = false
+layout_mode = 2
+
 [node name="Player1" parent="." instance=ExtResource("2_jnai4")]
 position = Vector2(150, 360)
 
@@ -57,11 +73,9 @@ script = ExtResource("4_68cpj")
 script = ExtResource("5_pkqxn")
 
 [node name="View" type="Camera2D" parent="."]
-position = Vector2(203, 349)
+position = Vector2(200, 350)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 
 [node name="FinishLineGenerator" type="Node2D" parent="."]
 script = ExtResource("6_ya57n")
-collision_margin = null
-finish_line_color = null

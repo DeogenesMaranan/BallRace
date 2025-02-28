@@ -5,6 +5,7 @@ extends Node2D
 const FINISH_SIZE_HORIZONTAL = Vector2(150, 50)
 const FINISH_SIZE_VERTICAL = Vector2(50, 150)
 @onready var view: Camera2D = $"../View"
+@onready var win_screen: Control = $"../HUD/Center/WinScreen"
 
 signal finish_line_reached
 
@@ -46,4 +47,8 @@ func generate_finish_line(width: int, height: int):
 func _on_finish_line_reached(body):
 	if body is Player:
 		print(body.name + " reached the finish line! 🎉")
+		if body.name == "Player1":
+			win_screen.show_winner("Player 1")
+		else:
+			win_screen.show_winner("Player 2")
 		emit_signal("finish_line_reached")
